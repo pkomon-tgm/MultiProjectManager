@@ -1,0 +1,13 @@
+{% extends "internal/base.html" %}
+
+{% load static %}
+
+{% block title %}Project Overview{% endblock %}
+{% block additional_header %}
+    <link rel="stylesheet" href="{% static 'internal/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+    {% include "internal/header.html" with title="Project Overview" %}
+    {% include "internal/project_list.html" %}
+{% endblock %}

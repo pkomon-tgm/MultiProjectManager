@@ -1,0 +1,10 @@
+<p>
+    Progress: {{ project.percent_completed }}%,
+    {{ project.task_count_completed }}/{{ project.task_count_total }}
+    task{% if project.task_count_total != 1 %}s{% endif %} completed
+</p>
+<div class="progress">
+    <div class="progress-bar" role="progressbar"
+         aria-valuenow="{{ project.percent_completed }}" aria-valuemin="0" aria-valuemax="100"
+         style="width: {{ project.percent_completed }}%;"></div>
+</div>

@@ -1,0 +1,38 @@
+{% extends "internal/..//detail/frag_base.html" %}
+
+{% block content %}
+    <style>
+        .item {
+            padding: 5px;
+            margin-bottom: 5px;
+            border: solid 1px #eeeeee;
+            border-radius: 3px;
+            vertical-align: middle;
+        }
+    </style>
+    <div class="container-fluid">
+        {% for task in project.task_set.all %}
+            <div class="row item">
+                <div class="col-md-3"><div style="font-size: 18px; margin-top: 8px;">{{ task.name }}</div></div>
+                <div class="col-md-2">
+                    {% for label in task.labels.all %}
+                        <span class="label label-default">{{ label }}</span>
+                    {% endfor %}
+                </div>
+                <div class="col-md-2">
+                    <small>State:</small>
+                    <br>{{ task.state_string }}</div>
+                <div class="col-md-1">
+                    <small>Prio:</small>
+                    {{ task.priority }}</div>
+                <div class="col-md-4">
+                    <small>created on:</small>
+                    {{ task.created_on.date }}<br>
+                    <small>by:</small>
+                    {{ task.creator }}<br>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

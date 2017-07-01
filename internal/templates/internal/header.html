@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">{{ title }}</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                    <span class="glyphicon-plus"></span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Add project</a></li>
+                    <li><a href="#">Add task</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                    {{ user.username }}
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">View profile</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="{% url "users:signout" %}">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</nav>

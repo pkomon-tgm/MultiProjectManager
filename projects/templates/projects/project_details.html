@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="page-header">
+        <h1>{{ project.name }}</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="col-md-8 project_detail_view">
+            {% include "internal/fragments/detail/frag_base.html" with title="Description" content=project.desc %}
+            {% include "internal/fragments/detail/frag_task_list.html" with title="Task list"%}
+        </div>
+
+        <div class="col-md-4 project_detail_view">
+            {% include "internal/fragments/detail/frag_stats.html" with title="Stats" %}
+            {% include "internal/fragments/detail/frag_participants.html" with title="Participants"%}
+        </div>
+
+    </div>
+
+</div>

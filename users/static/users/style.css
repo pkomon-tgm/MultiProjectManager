@@ -1,0 +1,29 @@
+
+.login-form{
+    border: solid 1px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    padding-bottom: 0px;
+    width: 30%;
+    margin-top: 10%;
+}
+
+.register-form{
+    border: solid 1px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    padding-bottom: 0px;
+    width: 40%;
+    margin-top: 10%;
+}
+
+.login-form h3{
+    margin-top:0;
+}
+
+
+.register-form h3{
+    margin-top:0;
+}

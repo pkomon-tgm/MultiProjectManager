@@ -1,0 +1,103 @@
+{% extends "internal/base.html" %}
+
+{% load forms_extras static %}
+
+{% block additional_header %}
+    <link rel="stylesheet" href="{% static 'users/style.css' %}">
+{% endblock %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<!--
+    <div class="center-block register-form">
+        <h3>
+            MultiProjectManager
+            <small>Register</small>
+        </h3>
+
+        <form class="form-horizontal" action="{% url "users:signup" %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username" class="col-sm-3 control-label">Username</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="foo@example.com">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="first_name" class="col-sm-3 control-label">First name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Wow">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="last_name" class="col-sm-3 control-label">Last name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Such Name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Password</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password-check" class="col-sm-3 control-label">Password (repeat)</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="password-check" name="password-check"
+                           placeholder="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-2">
+                    <button type="submit" class="btn btn-default">Sign up</button>
+                </div>
+                <div class="col-sm-offset-1 col-sm-6 text-right">
+                    <small>Already have an account? <a href="{% url "users:signin" %}">Login</a></small>
+                </div>
+            </div>
+        </form>
+    </div>
+    -->
+    <div class="center-block register-form">
+        <h3>
+            MultiProjectManager
+            <small>Sign up</small>
+        </h3>
+
+        <form class="form-horizontal" action="{% url "users:signup" %}" method="post">
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="form-group {% if field.errors %}has-error{% endif %}" >
+                {{ field|label_with_class:"col-sm-4 control-label" }}
+                <div class="col-sm-8">
+                    {{ field|field_with_class:"form-control" }}
+                </div>
+            </div>
+                {% for error in field.errors %}
+                    {% if error != "" %}
+                        <div class="form_group alert alert-danger"> {{ error }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-2">
+                    <button type="submit" class="btn btn-default">Sign up</button>
+                </div>
+                <div class="col-sm-offset-1 col-sm-5 text-right">
+                    <small>Already have an account? <a href="{% url "users:signup" %}">Sign in</a></small>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

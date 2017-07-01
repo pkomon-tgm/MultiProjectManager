@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <script type="text/javascript" src="{% static 'internal/jquery-3.2.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'internal/bootstrap.js' %}"></script>
+<!--    <link rel="script" href="{% static 'internal/bootstrap.css.map' %}">-->
+    <link rel="stylesheet" href="{% static 'internal/bootstrap.css' %}">
+
+    {% block additional_header %}{% endblock %}
+
+    <title>{% block title %}MPM{% endblock %}</title>
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>
